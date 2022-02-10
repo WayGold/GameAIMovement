@@ -6,6 +6,7 @@ RigidBody::RigidBody()
 	this->orientation = 0.0f;
 	this->velocity = glm::vec2(0.0f, 0.0f);
 	this->rotVelocity = 0;
+	this->mass = 0;
 }
 
 RigidBody::~RigidBody()
@@ -26,5 +27,19 @@ void RigidBody::update(DynamicSteeringOutput i_steering, float i_maxSpeed, float
 	if (velocity.length() > i_maxSpeed){
 		glm::normalize(velocity);
 		velocity *= i_maxSpeed;
+	}
+
+	// Check for border of window
+	if (position.x > 1024.0f) {
+		position.x -= 1024.0f;
+	}
+	if (position.x < 1024.0f) {
+		position.x += 1024.0f;
+	}
+	if (position.y > 768.0f) {
+		position.y -= 768.0f;
+	}
+	if (position.y < 768.0f) {
+		position.y += 768.0f;
 	}
 }

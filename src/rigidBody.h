@@ -10,6 +10,8 @@ public:
 	glm::vec2 velocity;
 	float rotVelocity;
 
+	float mass;
+
 	RigidBody();
 	~RigidBody();
 

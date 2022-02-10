@@ -1,23 +1,16 @@
 #pragma once
 #include "ofMain.h"
 #include "rigidBody.h"
-
-// Movement Output Data Types
-namespace MovementOutputs {
-	struct KinematicSteeringOutput {
-		glm::vec2 linearVelocity;
-		float rotVelocity;
-	};
-	struct DynamicSteeringOutput {
-		glm::vec2 linearAccel;
-		float rotAccel;
-	};
-}
-
-MovementOutputs::KinematicSteeringOutput kinematic_seek(RigidBody characterRB, RigidBody targetRB, float maxSpeed);
-MovementOutputs::KinematicSteeringOutput kinematic_flee(RigidBody characterRB, RigidBody targetRB, float maxSpeed);
-
-MovementOutputs::DynamicSteeringOutput dynamic_seek(RigidBody characterRB, RigidBody targetRB, float maxLinearAccel);
-MovementOutputs::DynamicSteeringOutput dynamic_arrive(RigidBody characterRB, RigidBody targetRB,
-	float maxLinearAccel, float maxSpeed,
-	float slowRadius, float targetRadius, float timeToTarget);
+#include "boid.h"
+#include "dynamic_align.h"
+#include "dynamic_arrive.h"
+#include "dynamic_evade.h"
+#include "dynamic_face.h"
+#include "dynamic_flee.h"
+#include "dynamic_flocking.h"
+#include "dynamic_look_where_you_are_going.h"
+#include "dynamic_pursue.h"
+#include "dynamic_seek.h"
+#include "dynamic_seperation.h"
+#include "dynamic_velocity_match.h"
+#include "dynamic_wander.h"

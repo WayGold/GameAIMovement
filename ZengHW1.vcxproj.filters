@@ -10,9 +10,6 @@
     <ClCompile Include="src\rigidBody.cpp">
       <Filter>src</Filter>
     </ClCompile>
-    <ClCompile Include="src\aiService.cpp">
-      <Filter>src</Filter>
-    </ClCompile>
     <ClCompile Include="src\boid.cpp">
       <Filter>src</Filter>
     </ClCompile>
@@ -53,6 +50,9 @@
       <Filter>aiService\movement\dynamic\advanced</Filter>
     </ClCompile>
     <ClCompile Include="src\dynamic_look_where_you_are_going.cpp">
+      <Filter>aiService\movement\dynamic\advanced</Filter>
+    </ClCompile>
+    <ClCompile Include="src\dynamic_flocking.cpp">
       <Filter>aiService\movement\dynamic\advanced</Filter>
     </ClCompile>
   </ItemGroup>
@@ -132,6 +132,9 @@
       <Filter>aiService\movement\dynamic\advanced</Filter>
     </ClInclude>
     <ClInclude Include="src\dynamic_look_where_you_are_going.h">
+      <Filter>aiService\movement\dynamic\advanced</Filter>
+    </ClInclude>
+    <ClInclude Include="src\dynamic_flocking.h">
       <Filter>aiService\movement\dynamic\advanced</Filter>
     </ClInclude>
   </ItemGroup>

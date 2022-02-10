@@ -1,5 +1,12 @@
 #include "boid.h"
 
+Boid::Boid()
+{
+	boidRB = nullptr;
+	width, radius = 0.0f;
+	boidColor = ofColor(0, 0, 0);
+}
+
 Boid::Boid(glm::vec2 i_pos, float i_width, float i_radius, ofColor i_boidColor) :
 	width(i_width), radius(i_radius), boidColor(i_boidColor) {
 	boidRB = new RigidBody();

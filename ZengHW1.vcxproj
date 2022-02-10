@@ -180,7 +180,6 @@
     <PostBuildEvent />
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="src\aiService.cpp" />
     <ClCompile Include="src\boid.cpp" />
     <ClCompile Include="src\Collider.cpp" />
     <ClCompile Include="src\dynamic_align.cpp" />
@@ -188,6 +187,7 @@
     <ClCompile Include="src\dynamic_evade.cpp" />
     <ClCompile Include="src\dynamic_face.cpp" />
     <ClCompile Include="src\dynamic_flee.cpp" />
+    <ClCompile Include="src\dynamic_flocking.cpp" />
     <ClCompile Include="src\dynamic_look_where_you_are_going.cpp" />
     <ClCompile Include="src\dynamic_pursue.cpp" />
     <ClCompile Include="src\dynamic_seek.cpp" />
@@ -208,6 +208,7 @@
     <ClInclude Include="src\dynamic_evade.h" />
     <ClInclude Include="src\dynamic_face.h" />
     <ClInclude Include="src\dynamic_flee.h" />
+    <ClInclude Include="src\dynamic_flocking.h" />
     <ClInclude Include="src\dynamic_look_where_you_are_going.h" />
     <ClInclude Include="src\dynamic_pursue.h" />
     <ClInclude Include="src\dynamic_seek.h" />
