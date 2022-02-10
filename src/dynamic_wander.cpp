@@ -32,7 +32,11 @@ DynamicSteeringOutput DynamicWander::getSteering(bool flag)
 	// Put up the wander target
 	explicitTarget = new RigidBody();
 	explicitTarget->orientation = targetOrient;
-	explicitTarget->position = direction * wanderOffset + targetDirection;
+	explicitTarget->position = direction * wanderOffset + targetDirection + characterRB->position;
+
+	// delegate to seek
+	dynamicSeek = new DynamicSeek(characterRB, explicitTarget, maxAcceleration);
+	result.linearAccel = dynamicSeek->getSteering().linearAccel;
 
 	if (flag) {
 		// delegate to face
@@ -44,11 +48,6 @@ DynamicSteeringOutput DynamicWander::getSteering(bool flag)
 		dynamicLookWhereYouAreGoing = new DynamicLookWhereYouAreGoing(characterRB, maxAngularAcceleration, maxRotation, targetRadius, slowRadius);
 		result.rotAccel = dynamicLookWhereYouAreGoing->getSteering().rotAccel;
 	}
-	
-
-	// delegate to seek
-	dynamicSeek = new DynamicSeek(characterRB, explicitTarget, maxAcceleration);
-	result.linearAccel = dynamicSeek->getSteering().linearAccel;
 
 	return result;
 }

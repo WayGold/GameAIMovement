@@ -24,22 +24,22 @@ void RigidBody::update(DynamicSteeringOutput i_steering, float i_maxSpeed, float
 	rotVelocity += i_steering.rotAccel * i_time;
 
 	// Check for speeding and clip.
-	if (velocity.length() > i_maxSpeed){
-		glm::normalize(velocity);
+	if (glm::length(velocity) > i_maxSpeed) {
+		velocity = glm::normalize(velocity);
 		velocity *= i_maxSpeed;
 	}
 
 	// Check for border of window
-	if (position.x > 1024.0f) {
+	while (position.x > 1024.0f) {
 		position.x -= 1024.0f;
 	}
-	if (position.x < 1024.0f) {
+	while (position.x < 0.0f) {
 		position.x += 1024.0f;
 	}
-	if (position.y > 768.0f) {
+	while (position.y > 768.0f) {
 		position.y -= 768.0f;
 	}
-	if (position.y < 768.0f) {
+	while (position.y < 0) {
 		position.y += 768.0f;
 	}
 }

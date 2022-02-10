@@ -11,25 +11,40 @@ class ofApp : public ofBaseApp{
 	public:
 		std::vector<Boid*> allBoids;
 		std::vector<Boid*> allSeekers;
-		std::vector<Boid*> allWanders;
+		std::vector<Boid*> allWanderers;
 		std::vector<Boid*> allFollowers;
 		std::vector<Boid*> allLeaders;
 
-		Boid* seekTarget;
+		Boid* seekTarget = nullptr;
+		float seekTargetIndex = -1;
 
 		std::vector<string> states;
 		std::vector<string>::iterator currentState;
 
-		const float maxSpeed = 10;
-		const float maxAcceleration = 5;
-		const float maxRotation = glm::pi<float>() / 8;
-		const float maxAngularAcceleration = glm::pi<float>() / 16;
-		const float slowRadius = 100;
-		const float targetRadius = 15;
+		DynamicSeek* dynamicSeek = nullptr;
+		DynamicFace* dynamicFace = nullptr;
+		DynamicWander* dynamicWander = nullptr;
+		DynamicLookWhereYouAreGoing* dynamicLWYG = nullptr;
+		
+		const float maxSpeed = 100;
+		const float maxAcceleration = 50;
 
+		const float slowRadius = 50;
+		const float targetRadius = 2;
+
+		const float maxRotation =  10 * glm::pi<float>();
+		const float maxAngularAcceleration = 2 * glm::pi<float>();
+
+		const float slowRadiusRot = glm::pi<float>() / 4;
+		const float targetRadiusRot = glm::pi<float>() / 64;
+
+		const float wanderOffset = 5;
+		const float wanderRate = glm::pi<float>() / 8;
+		
 		void setup();
 		void update();
 		void draw();
+		void exit();
 
 		void keyPressed(int key);
 		void keyReleased(int key);
